@@ -57,5 +57,5 @@
   "sideEffects": false,
   "types": "./dist/src/lib.d.ts",
   "unpkg": "dist/vue-leaflet.umd.js",
-  "version": "0.0.2"
+  "version": "0.0.3"
 }
