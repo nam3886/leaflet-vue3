@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { DomEvent, marker } from 'leaflet'
 
-import type LMap from '@/components/LMap.vue'
-import { debounce, findRealParent, remapEvents } from '@/utils'
+import type LMap from '../components/LMap.vue'
+import { debounce, findRealParent, remapEvents } from '../utils'
 import {
   getCurrentInstance,
   nextTick,

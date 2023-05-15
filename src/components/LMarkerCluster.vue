@@ -3,8 +3,8 @@ import 'leaflet.markercluster'
 
 import { DomEvent, markerClusterGroup } from 'leaflet'
 
-import type LMap from '@/components/LMap.vue'
-import { findRealParent, remapEvents } from '@/utils'
+import type LMap from '../components/LMap.vue'
+import { findRealParent, remapEvents } from '../utils'
 import {
   getCurrentInstance,
   nextTick,

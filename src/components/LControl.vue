@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { type ControlOptions, Control, DomEvent } from 'leaflet'
 
-import type LMap from '@/components/LMap.vue'
-import { findRealParent } from '@/utils'
+import type LMap from '../components/LMap.vue'
+import { findRealParent } from '../utils'
 import { getCurrentInstance, nextTick, onBeforeUnmount, onMounted, ref, toRef, watch } from 'vue'
 
 type Props = {

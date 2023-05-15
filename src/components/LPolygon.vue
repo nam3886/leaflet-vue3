@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { DomEvent, polygon } from 'leaflet'
 
-import type LMap from '@/components/LMap.vue'
-import { findRealParent, remapEvents } from '@/utils'
+import type LMap from '../components/LMap.vue'
+import { findRealParent, remapEvents } from '../utils'
 import {
   getCurrentInstance,
   nextTick,

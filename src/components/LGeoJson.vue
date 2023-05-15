@@ -1,8 +1,8 @@
 <script lang="ts" setup generic="CData extends any">
 import { DomEvent, geoJSON } from 'leaflet'
 
-import type LMap from '@/components/LMap.vue'
-import { findRealParent, remapEvents } from '@/utils'
+import type LMap from '../components/LMap.vue'
+import { findRealParent, remapEvents } from '../utils'
 import {
   getCurrentInstance,
   nextTick,

@@ -12,11 +12,11 @@ import {
 } from 'leaflet'
 import { useAttrs, type StyleValue } from 'vue'
 
-import { debounce, remapEvents } from '@/utils'
+import { debounce, remapEvents, resetIcons } from '../utils'
 import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
-// https://github.com/vuejs/core/issues/5551
-export interface Props {
+// FIXME: https://github.com/vuejs/core/issues/5551
+type Props = {
   readonly bounds?: LatLngBoundsExpression
   readonly fitBoundsOptions?: FitBoundsOptions
   readonly options?: Parameters<typeof map>[1]
@@ -52,7 +52,8 @@ watch(() => props.options?.crs, setCrs)
 watch(() => props.options?.center, setCenter)
 watch(() => props.bounds, setBounds)
 
-onMounted(() => {
+onMounted(async () => {
+  await resetIcons()
   create(props.options)
   props.bounds && fitBounds(props.bounds)
 

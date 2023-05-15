@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { type LatLngExpression, DomEvent, tooltip } from 'leaflet'
 
-import type LMarker from '@/components/LMarker.vue'
-import { findRealParent, remapEvents } from '@/utils'
+import type LMarker from '../components/LMarker.vue'
+import { findRealParent, remapEvents } from '../utils'
 import {
   getCurrentInstance,
   nextTick,

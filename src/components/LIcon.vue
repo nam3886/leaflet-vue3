@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { DomEvent, divIcon, icon, type Marker } from 'leaflet'
 
-import { remapEvents } from '@/utils'
+import { remapEvents } from '../utils'
 import {
   inject,
   nextTick,
