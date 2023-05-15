@@ -54,6 +54,8 @@ watch(() => props.bounds, setBounds)
 
 onMounted(async () => {
   await resetIcons()
+  console.log(rootRef.value)
+
   create(props.options)
   props.bounds && fitBounds(props.bounds)
 

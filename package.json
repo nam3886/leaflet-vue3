@@ -40,7 +40,7 @@
   ],
   "main": "dist/vue-leaflet.cjs.js",
   "module": "dist/vue-leaflet.es.js",
-  "name": "vue3-leaflet",
+  "name": "leaflet-vue-next",
   "private": false,
   "scripts": {
     "dev": "vite",
