@@ -1,68 +1,86 @@
 # leaflet-vue-next
 
-This template should help get you started developing with Vue 3 in Vite.
+Vue-leaflet, written and compatible with Vue 3!
 
-## Recommended IDE Setup
+This is a Beta version! And may yet be unstable! If you want to help, please reach out in an
+[issue](https://github.com/vue-leaflet/vue-leaflet/issues) or on [discord](https://discord.gg/uVZAfUf),
+or join the [discussions](https://github.com/vue-leaflet/vue-leaflet/discussions).
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## What works
 
-## Type Support for `.vue` Imports in TS
+<!-- - LCircle -->
+<!-- - LCircleMarker -->
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- LControl
+<!-- - LControlAttribution -->
+- LControlLayers
+<!-- - LControlScale -->
+- LControlZoom
+<!-- - LFeatureGroup -->
+- LGeoJson
+- LIcon
+<!-- - LImageOverlay -->
+- LMap
+- LMarker
+- LPolygon
+- LPolyline
+- LPopup
+<!-- - LRectangle -->
+- LTileLayer
+- LTooltip
+<!-- - LWmsTileLayer -->
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Installation
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```bash
+yarn add -D vue-leaflet-next
 ```
 
-### Compile and Hot-Reload for Development
+or
 
-```sh
-npm run dev
+```bash
+npm i -D vue-leaflet-next
 ```
 
-### Type-Check, Compile and Minify for Production
+## Usage
 
-```sh
-npm run build
-```
+Until the complete documentation is ready, please check the
+[component playground](https://github.com/vue-leaflet/vue-leaflet/tree/master/src/playground/views) examples or the
+[demo project](https://github.com/vue-leaflet/vue3-demo-project/blob/master/src/App.vue) for usage with Vue 3.
+Most component props mimic the vanilla [Leaflet options](https://leafletjs.com/reference-1.7.1.html) as closely as
+possible, and generally remain the same as in their [Vue2Leaflet counterparts](https://vue2-leaflet.netlify.app/components/).
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### Quickstart
 
-```sh
-npm run test:unit
-```
+```vue
+<template>
+  <div style="height:600px; width:800px">
+    <l-map ref="map" v-model:zoom="zoom" :center="[47.41322, -1.219482]">
+      <l-tile-layer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        layer-type="base"
+        name="OpenStreetMap"
+      ></l-tile-layer>
+    </l-map>
+  </div>
+</template>
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+<script>
+import 'leaflet/dist/leaflet.css'
+import { LMap, LTileLayer } from '@vue-leaflet/vue-leaflet'
 
-```sh
-npm run test:e2e:dev
-```
+export default {
+  components: {
+    LMap,
+    LTileLayer
+  },
+  data() {
+    return {
+      zoom: 2
+    }
+  }
+}
+</script>
 
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+<style></style>
 ```

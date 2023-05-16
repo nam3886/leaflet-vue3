@@ -13,8 +13,6 @@ export const debounce = <T, D>(fn: (...agrs: T[]) => D, time?: number) => {
   let timeout: NodeJS.Timeout | undefined
 
   function debouncedFunction(...args: T[]) {
-    // @ts-expect-error: TS2683 because in here we can get this
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const context = this
     if (timeout) {
       clearTimeout(timeout)
