@@ -1,6 +1,5 @@
-import type { Map as LeafletMap } from 'leaflet'
+import { Icon, type Map as LeafletMap } from 'leaflet'
 import type { ComponentInternalInstance, SetupContext } from 'vue'
-import { Icon } from 'leaflet'
 
 /**
  * It takes a function and returns a new function that will call the original function after a certain
@@ -13,6 +12,8 @@ export const debounce = <T, D>(fn: (...agrs: T[]) => D, time?: number) => {
   let timeout: NodeJS.Timeout | undefined
 
   function debouncedFunction(...args: T[]) {
+    // @ts-expect-error: TS2683 because in here we can get this
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const context = this
     if (timeout) {
       clearTimeout(timeout)
@@ -84,18 +85,6 @@ export function capitalizeFirstLetter(text?: string) {
   return text.charAt(0).toUpperCase() + text.slice(1)
 }
 
-/**
- * This TypeScript function finds the real parent of a component instance that has a Leaflet map
- * object.
- * @param {(ComponentInternalInstance & { mapObject?: LeafletMap }) | null | undefined} parentInstance
- * - The `parentInstance` parameter is a variable of type `(ComponentInternalInstance & { mapObject?:
- * LeafletMap }) | null | undefined`. It represents the parent component instance that we want to find
- * the real parent of. The `mapObject` property is an optional property that is used to check
- * @returns a value of type `T` or `undefined`. The type `T` is a generic type that is determined by
- * the caller of the function. The function is finding the first parent instance that has a `mapObject`
- * property and returning its `exposed` property as type `T`. If no parent instance with a `mapObject`
- * property is found, the function returns
- */
 export function findRealParent<T>(
   parentInstance: (ComponentInternalInstance & { mapObject?: LeafletMap }) | null | undefined
 ): T | undefined {
