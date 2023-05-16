@@ -1,5 +1,10 @@
 {
   "author": "nam3886",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nam3886/leaflet-vue3.git"
+  },
   "dependencies": {
     "vue": "^3.2.47"
   },
