@@ -55,11 +55,13 @@ watch(() => props.bounds, setBounds)
 onMounted(async () => {
   await resetIcons()
 
-  create(props.options)
-  props.bounds && fitBounds(props.bounds)
+  nextTick(() => {
+    create(props.options)
+    props.bounds && fitBounds(props.bounds)
 
-  ready.value = true
-  nextTick(() => mapObject.value && emit('ready', mapObject.value))
+    ready.value = true
+    nextTick(() => mapObject.value && emit('ready', mapObject.value))
+  })
 })
 
 onBeforeUnmount(remove)
